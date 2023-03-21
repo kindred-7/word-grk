@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>icon/Microsoft-Word-02-256.ico</file>
+    <file>icon/word_icon_48.png</file>
+    <file>icon/word_icon_64.png</file>
+  </qresource>
+</RCC>
