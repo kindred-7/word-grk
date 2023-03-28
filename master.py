@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from edit import *
 
 class Ui_mainWindow(object):
     def setupUi(self, mainWindow):
@@ -47,7 +47,8 @@ class Ui_mainWindow(object):
         self.pushBtn_1.setAutoFillBackground(False)
         self.pushBtn_1.setStyleSheet("")
         self.pushBtn_1.setObjectName("pushBtn_1")
-        self.lineEdit_1 = QtWidgets.QLineEdit(self.centralwidget)
+        # self.lineEdit_1 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_1 = MyLindEdit("", self)
         self.lineEdit_1.setGeometry(QtCore.QRect(210, 40, 360, 32))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
@@ -55,7 +56,8 @@ class Ui_mainWindow(object):
         self.lineEdit_1.setFont(font)
         self.lineEdit_1.setAcceptDrops(True)
         self.lineEdit_1.setObjectName("lineEdit_1")
-        self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
+        # self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_2 = MyLindEdit("", self.centralwidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(210, 90, 360, 32))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
@@ -139,7 +141,7 @@ class Ui_mainWindow(object):
 
     def retranslateUi(self, mainWindow):
         _translate = QtCore.QCoreApplication.translate
-        mainWindow.setWindowTitle(_translate("mainWindow", "报告生成工具 V2.0"))
+        mainWindow.setWindowTitle(_translate("mainWindow", "报告生成工具 V4.0"))
         self.pushBtn_1.setText(_translate("mainWindow", "浏览"))
         self.pushBtn_2.setText(_translate("mainWindow", "选择"))
         self.label.setText(_translate("mainWindow", "模板文件夹(.docx):"))

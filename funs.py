@@ -2,6 +2,7 @@ import datetime
 
 import pandas
 import random
+import pandas as pd
 
 from docxtpl import DocxTemplate, R
 
@@ -26,7 +27,7 @@ def del_datatime(time, mark):
         if mark == 1:
             new_time = time.strftime("%Y-%m-%d")
         else:
-            new_time = time.strftime("%Y-%m")
+            new_time = time.strftime("%Y.%m")
 
     return new_time
 
@@ -231,8 +232,8 @@ def read_xls(xls_file, sm_n):
         sample_num = sheet1.iloc[r, 0]  # 样车数量
         vin = sheet1.iloc[r, 1]  # vin
         engine_num = sheet1.iloc[r, 3]  # 发动机号
-        pd = del_datatime(sheet1.iloc[r, 4], 0)   # 生产日期
-        # pd = sheet1.iloc[r, 4]   # 生产日期
+        pd_ = del_datatime(sheet1.iloc[r, 4], 0)   # 生产日期
+        # pd_ = sheet1.iloc[r, 4]   # 生产日期
 
         sd = del_datatime(sheet1.iloc[r, 5], 1)  # 送样日期
         # sd = sheet1.iloc[r, 5]  # 送样日期
@@ -240,7 +241,6 @@ def read_xls(xls_file, sm_n):
         pg_n = sheet1.iloc[r, 6]  # 乘员数
         cd = del_datatime(sheet1.iloc[r, 7], 1)  # 检测日期
         # cd = sheet1.iloc[r, 7]  # 检测日期
-
 
         if sheet2.iloc[47, 2] == 'N/A' and sheet2.iloc[47, 3] == 'N/A':
             trunk = 'N/A'
@@ -256,7 +256,7 @@ def read_xls(xls_file, sm_n):
         left_light = int(left_light_list[r]/100)*100
         right_light = int(right_light_list[r]/100)*100
 
-        d = {"sm_num": sample_num, "vin": vin, "PD": pd, "SD": sd, "CD": cd, "eng_num": engine_num, "pg_n": pg_n}
+        d = {"sm_num": sample_num, "vin": vin, "PD": pd_, "SD": sd, "CD": cd, "eng_num": engine_num, "pg_n": pg_n}
         d.update({"n": n_list[r], "length": length_list[r], "width": width_list[r], "height": height_list[r],
                   "trunk": trunk,
                   "up_edge_h": up_edge_h_list[r], "down_edge_h": down_edge_h_list[r],

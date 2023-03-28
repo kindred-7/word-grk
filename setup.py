@@ -33,6 +33,7 @@ class MyWindow(QMainWindow, Ui_mainWindow):
             self.lineEdit_2.setText(xlsx_path)
 
     def run(self):
+
         self.thread.file_path = self.lineEdit_1.text()
         self.thread.xlsx_path = self.lineEdit_2.text()
         self.thread.sn = self.lineEdit_3.text()
