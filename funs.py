@@ -18,13 +18,12 @@ def get_random_list(value, num):
 
 
 def del_datatime(time, mark):
+    fm = "%Y-%m-%d" if mark == 1 else "%Y-%m"
+
     if isinstance(time, str):
         new_time = time
     else:
-        if mark == 1:
-            new_time = time.strftime("%Y-%m-%d")
-        else:
-            new_time = time.strftime("%Y.%m")
+        new_time = time.strftime(fm)
 
     return new_time
 
