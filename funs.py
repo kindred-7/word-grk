@@ -1,8 +1,5 @@
-import datetime
-
 import pandas
 import random
-import pandas as pd
 
 from docxtpl import DocxTemplate, R
 
@@ -233,14 +230,11 @@ def read_xls(xls_file, sm_n):
         vin = sheet1.iloc[r, 1]  # vin
         engine_num = sheet1.iloc[r, 3]  # 发动机号
         pd_ = del_datatime(sheet1.iloc[r, 4], 0)   # 生产日期
-        # pd_ = sheet1.iloc[r, 4]   # 生产日期
 
         sd = del_datatime(sheet1.iloc[r, 5], 1)  # 送样日期
-        # sd = sheet1.iloc[r, 5]  # 送样日期
 
         pg_n = sheet1.iloc[r, 6]  # 乘员数
         cd = del_datatime(sheet1.iloc[r, 7], 1)  # 检测日期
-        # cd = sheet1.iloc[r, 7]  # 检测日期
 
         if sheet2.iloc[47, 2] == 'N/A' and sheet2.iloc[47, 3] == 'N/A':
             trunk = 'N/A'
@@ -250,7 +244,6 @@ def read_xls(xls_file, sm_n):
             else:
                 trunk_length = sheet2.iloc[47, 3]
             trunk = "行李区的纵向长度为{0}mm，为车长的{1}%".format(trunk_length, round(trunk_length / length_list[r] * 100, 1))
-        # print(trunk)
 
         # 灯光强度计算
         left_light = int(left_light_list[r]/100)*100
