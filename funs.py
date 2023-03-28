@@ -229,6 +229,7 @@ def read_xls(xls_file, sm_n):
         vin = sheet1.iloc[r, 1]  # vin
         engine_num = sheet1.iloc[r, 3]  # 发动机号
         pd_ = del_datatime(sheet1.iloc[r, 4], 0)   # 生产日期
+        year, month = pd_.split('-')
 
         sd = del_datatime(sheet1.iloc[r, 5], 1)  # 送样日期
 
@@ -248,7 +249,8 @@ def read_xls(xls_file, sm_n):
         left_light = int(left_light_list[r]/100)*100
         right_light = int(right_light_list[r]/100)*100
 
-        d = {"sm_num": sample_num, "vin": vin, "PD": pd_, "SD": sd, "CD": cd, "eng_num": engine_num, "pg_n": pg_n}
+        d = {"sm_num": sample_num, "vin": vin, "PD": pd_, "y": year, "m": month, "SD": sd, "CD": cd,
+             "eng_num": engine_num, "pg_n": pg_n}
         d.update({"n": n_list[r], "length": length_list[r], "width": width_list[r], "height": height_list[r],
                   "trunk": trunk,
                   "up_edge_h": up_edge_h_list[r], "down_edge_h": down_edge_h_list[r],
